@@ -1,0 +1,33 @@
+{
+    "curly": true,
+    "eqeqeq": false,
+    "immed": false,
+    "latedef": true,
+    "newcap": true,
+    "noarg": true,
+    "node": true,
+    "sub": true,
+    "undef": true,
+    "unused": false,
+    "boss": true,
+    "eqnull": true,
+    "browser": true,
+    "trailing": true,
+    "strict": true,
+    "devel": true,
+    "globals": {
+        "jQuery": true,
+        "Backbone": true,
+        "_": true,
+        "Marionette": true,
+        "$": true,
+        "slice": true,
+        "Wreqr": true,
+        "require": true,
+        "module": true,
+        "define": true,
+        "console":true,
+        "==":true,
+        "onBeforeRender": true
+    }
+}
