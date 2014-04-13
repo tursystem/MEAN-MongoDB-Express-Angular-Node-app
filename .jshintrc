@@ -21,6 +21,7 @@
         "_": true,
         "Marionette": true,
         "$": true,
+        "angular" : true,
         "slice": true,
         "Wreqr": true,
         "require": true,

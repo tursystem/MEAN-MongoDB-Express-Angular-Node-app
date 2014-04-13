@@ -1,3 +1,3 @@
 # Node Real Estate App
 
-A Node app built with MongoDB and Angular.
+This is a MEAN (MongoDB, Express, Angular, Node) app

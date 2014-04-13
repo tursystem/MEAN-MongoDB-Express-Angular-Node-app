@@ -7,10 +7,11 @@ module.exports = function(app) {
 
 		Im.find(function(err, ims) {
 
-			if (err)
-				res.send(err)
+			if (err) {
+				res.send(err);
+            }
 
-			res.json(ims);
+            res.json(ims);
 		});
 	});
 
@@ -20,28 +21,35 @@ module.exports = function(app) {
 			text : req.body.text,
 			done : false
 		}, function(err, im) {
-			if (err)
+			if (err) {
 				res.send(err);
+            }
 
 			Im.find(function(err, ims) {
-				if (err)
-					res.send(err)
-				res.json(ims);
+				if (err) {
+					res.send(err);
+                }
+
+                res.json(ims);
 			});
 		});
 
 	});
 
 	app.delete('/api/ims/:im_id', function(req, res) {
-		Im.remove({
+
+        Im.remove({
 			_id : req.params.im_id
 		}, function(err, im) {
-			if (err)
+			if (err) {
 				res.send(err);
+            }
 
-			Im.find(function(err, ims) {
-				if (err)
-					res.send(err)
+            Im.find(function(err, ims) {
+				if (err) {
+					res.send(err);
+                }
+
 				res.json(ims);
 			});
 		});
