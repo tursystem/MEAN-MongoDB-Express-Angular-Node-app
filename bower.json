@@ -1,0 +1,10 @@
+{
+    "name": "Domopoisk",
+    "description": "Real Estate Agregator",
+    "version": "0.0.1",
+    "private": true,
+    "dependencies": {
+        "angular": "1.2.x",
+        "angular-route": "~1.2.15"
+    }
+}

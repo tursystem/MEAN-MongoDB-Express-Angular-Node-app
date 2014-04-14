@@ -1,11 +1,14 @@
 {
-  "name"         : "Domopoisk",
-  "version"      : "0.0.1",
-  "description"  : "Real Estate Agregator",
-  "main"         : "server.js",
-  "author"       : "Sandor Turanszky",
-  "dependencies" : {
-    "express"    : "~3.4.4",
-    "mongoose"   : "~3.6.2"
+  "name"         :   "Domopoisk",
+  "version"         : "0.0.1",
+  "description"     : "Real Estate Agregator",
+  "main"            : "server.js",
+  "author"          : "Sandor Turanszky",
+  "dependencies"    : {
+    "express"       : "~3.4.4",
+    "mongoose"      : "~3.6.2"
+  },
+  "scripts": {
+    "postinstall": "bower install"
   }
 }

@@ -1,7 +1,7 @@
 "use strict";
-angular.module('imController', [])
+var imController = angular.module('imController', []);
 
-    .controller('immobilienController', function($scope, $http, Ims) {
+    imController.controller('mainController', function($scope, $http, Ims) {
         $scope.formData = {};
 
         Ims.get()
@@ -25,6 +25,28 @@ angular.module('imController', [])
             Ims.delete(id)
                 .success(function(data) {
                     $scope.ims = data;
+                });
+        };
+    });
+
+    imController.controller('subscribeController', function($scope, $http, Subscription) {
+        $scope.formData = {};
+
+        $scope.subscribe = function() {
+            if (!$.isEmptyObject($scope.formData)) {
+
+                Subscription.create($scope.formData)
+                    .success(function(data) {
+                        $scope.formData = {};
+                        $scope.subscription = data;
+                    });
+            }
+        };
+
+        $scope.unsubscribe = function(id) {
+            Subscription.delete(id)
+                .success(function(data) {
+                    $scope.subscription = data;
                 });
         };
     });

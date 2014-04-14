@@ -1,0 +1,64 @@
+<!doctype html>
+
+<html ng-app="Immobilien">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+	<title>Node/Angular im App</title>
+
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+	<style>
+		html 					{ overflow-y:scroll; }
+		body 					{ padding-top:50px; }
+		#im-list 				{ margin-bottom:30px; }
+		#im-form 	 			{ margin-bottom:50px; }
+	</style>
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script>
+    <script src="js/controllers/main.js"></script>
+    <script src="js/services/ims.js"></script>
+	<script src="js/core.js"></script>
+
+</head>
+<body ng-controller="immobilienController">
+	<div class="container">
+
+		<div class="jumbotron text-center">
+			<h1>I'm a im-aholic <span class="label label-info">{{ ims.length }}</span></h1>
+		</div>
+
+		<div id="im-list" class="row">
+			<div class="col-sm-4 col-sm-offset-4">
+
+				<div class="checkbox" ng-repeat="im in ims">
+					<label>
+						<input type="checkbox" ng-click="deleteIm(im._id)"> {{ im.text }}
+					</label>
+				</div>
+
+			</div>
+		</div>
+
+		<div id="im-form" class="row">
+			<div class="col-sm-8 col-sm-offset-2 text-center">
+				<form>
+					<div class="form-group">
+
+						<input type="text" class="form-control input-lg text-center" placeholder="I want to buy a puppy that will love me forever" ng-model="formData.text">
+					</div>
+
+					<button type="submit" class="btn btn-primary btn-lg" ng-click="createIm()">Add</button>
+				</form>
+			</div>
+		</div>
+
+		<div class="text-center text-muted">
+			<p>Learn Angular</p>
+		</div>
+
+	</div>
+
+</body>
+</html>
