@@ -1,10 +1,10 @@
 "use strict";
 var imController = angular.module('imController', []);
 
-    imController.controller('mainController', function($scope, $http, Ims) {
+    imController.controller('sellController', function($scope, $http, Ims) {
         $scope.formData = {};
 
-        Ims.get()
+        Ims.getObjects()
             .success(function(data) {
                 $scope.ims = data;
             });
@@ -12,7 +12,7 @@ var imController = angular.module('imController', []);
         $scope.createIm = function() {
             if (!$.isEmptyObject($scope.formData)) {
 
-                Ims.create($scope.formData)
+                Ims.createObject($scope.formData)
 
                     .success(function(data) {
                         $scope.formData = {};
@@ -22,20 +22,19 @@ var imController = angular.module('imController', []);
         };
 
         $scope.deleteIm = function(id) {
-            Ims.delete(id)
+            Ims.deleteObject(id)
                 .success(function(data) {
                     $scope.ims = data;
                 });
         };
     });
 
-    imController.controller('subscribeController', function($scope, $http, Subscription) {
+    imController.controller('subscribeController', function($scope, $http, Ims) {
         $scope.formData = {};
 
-        $scope.subscribe = function() {
-            if (!$.isEmptyObject($scope.formData)) {
-
-                Subscription.create($scope.formData)
+        $scope.subscribe = function(isValid) {
+            if(isValid) {
+                Ims.subscribe($scope.formData)
                     .success(function(data) {
                         $scope.formData = {};
                         $scope.subscription = data;
@@ -44,7 +43,7 @@ var imController = angular.module('imController', []);
         };
 
         $scope.unsubscribe = function(id) {
-            Subscription.delete(id)
+            Ims.unsubscribe(id)
                 .success(function(data) {
                     $scope.subscription = data;
                 });

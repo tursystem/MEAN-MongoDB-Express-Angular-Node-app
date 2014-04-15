@@ -14,7 +14,7 @@ Immobilien.config(['$routeProvider',
             }).
             when('/sell', {
                 templateUrl: 'partials/sell.html',
-                controller: 'sellCtrl'
+                controller: 'sellController'
             }).
             when('/buy', {
                 templateUrl: 'partials/buy.html',

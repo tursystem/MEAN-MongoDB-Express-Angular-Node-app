@@ -13,18 +13,25 @@
 
         <div class="col-md-8">
             <div class="well bs-component">
-            <form class="form-horizontal">
+            <form name="subscriptionForm" class="form-horizontal" ng-submit="subscribe(subscriptionForm.$valid)" novalidate>
                 <fieldset>
                     <div class="form-group">
                         <label for="inputEmail" class="col-lg-2 control-label">Email</label>
-                        <div class="col-lg-10">
-                            <input type="text" class="form-control" id="inputEmail" placeholder="Email">
+                        <div class="col-lg-10" ng-class="{ 'has-error' : subscriptionForm.email.$invalid && !subscriptionForm.email.$pristine }">
+                            <input type="email" class="form-control" id="inputEmail" placeholder="Email" ng-model="formData.email" required>
+                            <p ng-show="subscriptionForm.email.$invalid && !subscriptionForm.name.$pristine" class="help-block">Email is required.</p>
+
+                            <!--<p ng-show="subscriptionForm.email.$invalid && !subscriptionForm.email.$pristine" class="help-block">Enter a valid email.</p>-->
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-lg-10 col-lg-offset-2">
                             <button type="submit" class="btn btn-primary">Subscribe</button>
                         </div>
+
+                        	<pre>
+		{{ formData }}
+	</pre>
                     </div>
                 </fieldset>
             </form>
